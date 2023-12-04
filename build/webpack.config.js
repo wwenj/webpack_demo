@@ -1,4 +1,6 @@
 import path from 'path'
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+
 // const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // 提取 css 文件
 // import webpack from 'webpack'
 import { fileURLToPath } from 'url';
@@ -10,7 +12,7 @@ export default {
   mode: 'production',
   devtool: 'source-map',
   entry: {
-    main: path.resolve(__dirname, '../src/main.js'),
+    main: path.resolve(__dirname, '../src/page1/index.jsx'),
   },
   output: {
     // 开发环境为了代码分片的路径会设置 publicPath: '/static/'
@@ -41,22 +43,21 @@ export default {
           }
         }
       },
-      // {
-      //   test: /\.css|less/,
-      //   use: [
-      //     // {
-      //     //   loader: MiniCssExtractPlugin.loader,
-      //     //   options: {
-      //     //     publicPath: 'css/',
-      //     //   },
-      //     // },
-      //     'css-loader',
-      //     'less-loader',
-      //   ],
-      // },
+      {
+        test: /\.css|less/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'less-loader',
+        ],
+      },
     ],
   },
   plugins: [
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, '../src/page1/index.html'),
+      publicPath:'./'
+    })
     // new webpack.DllReferencePlugin({
     //   context: __dirname,
     //   // eslint-disable-next-line global-require

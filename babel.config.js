@@ -1,8 +1,9 @@
 export default {
   // "cacheDirectory": true,
   "presets": [
+    "@babel/preset-env",
     [
-      "@babel/preset-env",
+      "@babel/preset-react",
       {
         "modules": false,
         "targets": {

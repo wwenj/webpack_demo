@@ -9,19 +9,13 @@ import config from './webpack.config.js'
 import { vconsole } from './utils.js'
 const { NODE_ENV = 'development' } = process.env;
 vconsole.log('当前环境：' + NODE_ENV)
-// const args = parseArgv(process.argv);
-// const { env } = args;
-// const compileFn = require(`./env/${env}`);
-// const { entryName, webpackConfig } = packWebpackConfigByENV(
-//     args,
-//     config
-// );
+
 webpack(config, (err, stats) => {
     if (err || stats.hasErrors()) {
-        vconsole.error('编译出错', err, stats, '---')
+        vconsole.error('编译出错')
         vconsole.error(err)
         vconsole.error(stats)
+    }else{
+        vconsole.log('webpack 编译成功')
     }
-    vconsole.log('webpack 编译成功')
 });
-// compileFn(args, entryName, compiler);
