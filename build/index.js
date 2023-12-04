@@ -16,6 +16,6 @@ webpack(config, (err, stats) => {
         vconsole.error(err)
         vconsole.error(stats)
     }else{
-        vconsole.log('webpack 编译成功')
+        // vconsole.log('webpack 编译成功')
     }
 });
