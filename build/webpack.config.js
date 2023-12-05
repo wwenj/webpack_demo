@@ -1,16 +1,32 @@
 import path from 'path'
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 import { vconsole } from './utils.js'
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+// const { NODE_ENV = 'development' } = process.env;
 
 // const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // 提取 css 文件
 import webpack from 'webpack'
-import { fileURLToPath } from 'url';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+
 let buildStartTime = 0;
 export default {
-  mode: 'production',
+  // watch: true,
+  // watchOptions: {
+  //   aggregateTimeout: 600,
+  //   ignored: /node_modules/,
+  // },
+  mode: 'development',
+  devServer: {
+    static: {
+      directory: path.resolve(__dirname, './'),
+      publicPath: '/dist/',
+    },
+    compress: true,
+    port: 'auto',
+    host: '0.0.0.0',
+  },
   devtool: 'source-map',
   entry: {
     main: path.resolve(__dirname, '../src/page1/index.jsx'),
@@ -57,7 +73,7 @@ export default {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '../src/page1/index.html'),
-      publicPath:'./'
+      publicPath: './'
     }),
     new webpack.ProgressPlugin({
       handler(percentage, message, ...args) {
@@ -91,5 +107,8 @@ export default {
     //   chunkFilename: 'css/mini-video/[id].css',
     // }),
   ],
+  optimization: {
+    runtimeChunk: 'single',
+  },
 };
 
