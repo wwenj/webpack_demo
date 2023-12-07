@@ -6,10 +6,7 @@ export default function Home() {
         console.log(_WEBPACK_MODE_)
     }, [])
     return <div className="home">
-        <h2>react,111112222233133445</h2>
-        <h2>react,111112222233133445</h2>
-        <h2>react,111112222233133445</h2>
-        <h2>react,11111222223313344544</h2>
+        <h2>react11</h2>
         {
             _WEBPACK_MODE_ === 'production' ? <h1>production</h1> : <h1>development</h1>
         }
