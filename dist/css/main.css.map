@@ -1,0 +1,1 @@
+{"version":3,"file":"css/main.css","mappings":"AAAA;EACI;EACA;AACJ","sources":["webpack://webpack_demo/./src/page1/Home/style.css"],"sourcesContent":[".home{\n    color: red;\n    background-color: blue;\n}"],"names":[],"sourceRoot":""}
