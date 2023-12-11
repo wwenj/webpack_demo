@@ -1,0 +1,1 @@
+{"version":3,"file":"css/page2/page2.css","mappings":"AAAA;EACI;AACJ","sources":["webpack://webpack_demo/./src/page2/Home/style.css"],"sourcesContent":[".home{\n    color: red;\n}"],"names":[],"sourceRoot":""}

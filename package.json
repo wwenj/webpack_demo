@@ -6,8 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "NODE_ENV=development node build",
-    "build": "NODE_ENV=production node build"
+    "start": "cross-env NODE_ENV=development node build",
+    "build": "cross-env NODE_ENV=production node build"
   },
   "keywords": [],
   "author": "",

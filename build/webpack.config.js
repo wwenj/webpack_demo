@@ -12,12 +12,13 @@ let progressStartTime = 0
 export default {
   devtool: 'source-map',
   entry: {
-    main: path.resolve(__dirname, '../src/page1/index.jsx'),
+    page1: path.resolve(__dirname, '../src/page1/index.jsx'),
+    page2: path.resolve(__dirname, '../src/page2/index.jsx'),
   },
   output: {
     // 开发环境为了代码分片的路径会设置 publicPath: '/static/'
     path: path.resolve(__dirname, '../dist/'),
-    filename: 'js/[name].js',
+    filename: 'js/[name]/[name].js',
     publicPath: '/dist/',
     clean: true
   },
@@ -57,6 +58,14 @@ export default {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '../src/page1/index.html'),
+      filename: 'page1.html',
+      chunks:['page1'],
+      publicPath: './'
+    }),
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, '../src/page2/index.html'),
+      filename: 'page2.html',
+      chunks: ['page2'],
       publicPath: './'
     }),
     new webpack.ProgressPlugin({

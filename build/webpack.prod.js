@@ -15,8 +15,8 @@ const webpackConfig = merge(common, {
       _WEBPACK_MODE_: JSON.stringify('production'),
     }),
     new MiniCssExtractPlugin({
-      filename: 'css/[name].css',
-      chunkFilename: 'css/[id].css',
+      filename: 'css/[name]/[name].css',
+      chunkFilename: 'css/[name]/[id].css',
     }),
   ],
   optimization: {
