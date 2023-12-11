@@ -1,1 +1,0 @@
-{"version":3,"file":"js/main.js","mappings":"mBAEIA,QAAQC,IAFJ,E","sources":["webpack://webpack_demo/./src/main.js"],"sourcesContent":["let a = 1\nfunction test(b){\n    console.log(b)\n}\n\ntest(a)"],"names":["console","log"],"sourceRoot":""}
