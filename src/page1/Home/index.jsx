@@ -7,6 +7,8 @@ export default function Home() {
     }, [])
     return <div className="home">
         <h2>page1</h2>
+        <img src="./img/img1.png" alt="" />
+        <img src="./img/img2.png" alt="" />
         {
             _WEBPACK_MODE_ === 'production' ? <h1>production</h1> : <h1>development</h1>
         }
