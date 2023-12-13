@@ -6,11 +6,11 @@ import { vconsole } from './utils.js'
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 const { NODE_ENV = 'development' } = process.env;
-// const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // 提取 css 文件
 import webpack from 'webpack'
+
 let progressStartTime = 0
+
 export default {
-  devtool: NODE_ENV === 'development' ? 'eval-source-map' : 'source-map',
   context: path.resolve(__dirname, './'),
   entry: {
     main: path.resolve(__dirname, '../src/main/index.jsx'),
@@ -19,9 +19,8 @@ export default {
   output: {
     // 开发环境为了代码分片的路径会设置 publicPath: '/static/'
     path: path.resolve(__dirname, '../dist/'),
-    filename: 'js/[name]/[name].js',
+    filename: 'js/[name]/[name].[contenthash].js',
     publicPath: '/',
-    // assetModuleFilename: 'images/[hash][ext][query]',
     clean: true
   },
   resolve: {
@@ -107,6 +106,15 @@ export default {
   ],
   optimization: {
     runtimeChunk: 'single',
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all',
+        },
+      },
+    },
   },
 };
 

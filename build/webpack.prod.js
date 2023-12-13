@@ -3,13 +3,14 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 import { merge } from 'webpack-merge'
-import common from './webpack.config.js'
+import common from './webpack.common.js'
 import { vconsole } from './utils.js'
 import webpack from 'webpack'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 
 const webpackConfig = merge(common, {
   mode: 'production',
+  devtool: 'source-map',
   plugins: [
     new webpack.DefinePlugin({
       _WEBPACK_MODE_: JSON.stringify('production'),
