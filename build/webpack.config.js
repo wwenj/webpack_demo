@@ -13,7 +13,7 @@ export default {
   devtool: NODE_ENV === 'development' ? 'eval-source-map' : 'source-map',
   context: path.resolve(__dirname, './'),
   entry: {
-    page1: path.resolve(__dirname, '../src/page1/index.jsx'),
+    main: path.resolve(__dirname, '../src/main/index.jsx'),
     page2: path.resolve(__dirname, '../src/page2/index.jsx'),
   },
   output: {
@@ -31,9 +31,21 @@ export default {
   },
   module: {
     rules: [
+      // {
+      //   test: /\.html$/i,
+      //   loader: 'html-loader',
+      // },
       {
-        test: /\.html$/i,
-        loader: 'html-loader',
+        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        type: 'asset',
+        generator: {
+          filename: 'images/[hash][ext][query]'
+        },
+        parser: {
+          dataUrlCondition: {
+            maxSize: 4 * 1024 // 4kb
+          }
+        }
       },
       {
         test: /\.m?js|jsx$/,
@@ -50,25 +62,13 @@ export default {
           'less-loader',
         ],
       },
-      {
-        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-        type: 'asset',
-        generator: {
-          filename: 'images/[hash][ext][query]'
-        },
-        parser: {
-          dataUrlCondition: {
-            maxSize: 4 * 1024 // 4kb
-          }
-        }
-      },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, '../src/page1/index.html'),
-      filename: 'page1.html',
-      chunks: ['page1'],
+      template: path.resolve(__dirname, '../src/main/index.html'),
+      filename: 'main.html',
+      chunks: ['main'],
       publicPath: './'
     }),
     new HtmlWebpackPlugin({

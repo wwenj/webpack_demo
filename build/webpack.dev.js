@@ -16,7 +16,7 @@ const webpackConfig = merge(common, {
   //   ignored: /node_modules/,
   // },
   devServer: {
-    open: ['/dist/index.html'],
+    open: ['/main.html'],
     static: {
       directory: path.resolve(__dirname, '../assets'),
       // publicPath: '/dist/',

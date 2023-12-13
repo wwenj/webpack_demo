@@ -1,0 +1,27 @@
+.DemoReact {
+    width: 100%;
+    min-height: 500px;
+    padding: 40px 20px;
+    box-sizing: border-box;
+    background-color: #fff6f6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+        width: 100px;
+        height: 100px;
+        color: #0074a6;
+    }
+
+    h1 {
+        font-size: 52px;
+        margin: 21px;
+    }
+
+    p {
+        font-size: 32px;
+        color: rgb(64, 71, 86);
+    }
+}

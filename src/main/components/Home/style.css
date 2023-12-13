@@ -1,0 +1,11 @@
+.home {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    &_title {
+        font-size: 20px;
+        margin: 20px;
+    }
+}

@@ -1,0 +1,9 @@
+.DemoWebpack {
+    background: #2b3a42;
+    padding: 40px 20px;
+    box-sizing: border-box;
+    h1{
+        color: #fff;
+        font-size: 30px;
+    }
+}
