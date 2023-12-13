@@ -35,7 +35,6 @@ const webpackConfig = merge(common, {
 });
 
 export default function () {
-  // let startTime = Date.now();
   // 创建webpack对象
   const compiler = webpack(webpackConfig)
   // 创建devServer对象
