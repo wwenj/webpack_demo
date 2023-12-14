@@ -17,7 +17,6 @@ export default {
     page2: path.resolve(__dirname, '../src/page2/index.jsx'),
   },
   output: {
-    // 开发环境为了代码分片的路径会设置 publicPath: '/static/'
     path: path.resolve(__dirname, '../dist/'),
     filename: 'js/[name]/[name].[contenthash].js',
     publicPath: '/',
@@ -30,10 +29,6 @@ export default {
   },
   module: {
     rules: [
-      // {
-      //   test: /\.html$/i,
-      //   loader: 'html-loader',
-      // },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         type: 'asset',
@@ -68,13 +63,13 @@ export default {
       template: path.resolve(__dirname, '../src/main/index.html'),
       filename: 'main.html',
       chunks: ['main'],
-      publicPath: './'
+      publicPath: '/'
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '../src/page2/index.html'),
       filename: 'page2.html',
       chunks: ['page2'],
-      publicPath: './'
+      publicPath: '/'
     }),
     new webpack.ProgressPlugin({
       handler(percentage, message, ...args) {
@@ -94,15 +89,6 @@ export default {
         }
       },
     }),
-    // new webpack.DllReferencePlugin({
-    //   context: __dirname,
-    //   // eslint-disable-next-line global-require
-    //   manifest: require('./manifest.json'),
-    // }),
-    // new MiniCssExtractPlugin({
-    //   filename: 'css/mini-video/[name].css',
-    //   chunkFilename: 'css/mini-video/[id].css',
-    // }),
   ],
   optimization: {
     runtimeChunk: 'single',

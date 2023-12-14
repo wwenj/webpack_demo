@@ -1,3 +1,4 @@
+// 控制台色彩打印
 export const vconsole = {
   log(msg) {
     console.log('\x1b[42m\x1b[37m 信息 INFO \x1b[0m\x1b[32m ' + msg + '\x1b[0m');

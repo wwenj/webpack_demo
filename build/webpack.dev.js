@@ -11,27 +11,20 @@ import WebpackDevServer from 'webpack-dev-server'
 const webpackConfig = merge(common, {
   mode: 'development',
   devtool: 'inline-source-map',
-  // watch: true,
-  // watchOptions: {
-  //   aggregateTimeout: 600,
-  //   ignored: /node_modules/,
-  // },
   devServer: {
     open: ['/main.html'],
-    static: {
-      directory: path.resolve(__dirname, '../assets'),
-      // publicPath: '/dist/',
-    },
-    compress: true,
     port: 'auto',
     host: '0.0.0.0',
     hot: true,
+    proxy: {
+      '/api': 'http://api.test.com',
+    },
   },
   plugins: [
     new webpack.DefinePlugin({
       _WEBPACK_MODE_: JSON.stringify('development'),
-    })
-  ]
+    }),
+  ],
 });
 
 export default function () {
